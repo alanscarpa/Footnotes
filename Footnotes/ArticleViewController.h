@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataStore.h"
+#import "Article.h"
 
 @interface ArticleViewController : UIViewController
-
+@property (nonatomic, strong) Article *article;
 @end

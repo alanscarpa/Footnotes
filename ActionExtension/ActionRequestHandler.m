@@ -62,7 +62,7 @@
     // current url
     NSString *urlString = javaScriptPreprocessingResults[@"baseURI"];
     NSLog(@"%@", urlString);
-    [self saveArticleToCoreData:urlString];
+    [ArticleParser saveArticleToCoreData:urlString dataStore:self.dataStore];
     
     // NSLog(@"%@", urlString);
     

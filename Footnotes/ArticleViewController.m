@@ -35,40 +35,15 @@
     // Remove weird white space added by UIWebview at top of page
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-     [self loadArticle:@"http://api.diffbot.com/v3/article?url=http://www.nytimes.com/2015/07/05/business/effective-concussion-treatment-remains-frustratingly-elusive-despite-a-booming-industry.html&token=f573d590d93ff414652a15c5042141f0"];
+    [self loadArticle:self.article];
     
 }
 
--(void)loadArticle:(NSString*)articleURL{
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:articleURL]
-                                                           cachePolicy:NSURLRequestReturnCacheDataElseLoad
-                                                       timeoutInterval:10];
+-(void)loadArticle:(Article*)articleURL{
     
-    [request setHTTPMethod: @"GET"];
-    
-    
-    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        [self.webView loadHTMLString:self.article.html baseURL:nil];
         
-        NSDictionary *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-        
-        NSString *textToRead = [NSString stringWithFormat:@"%@", jsonArray[@"objects"][0][@"text"]];
-        
-        NSString *title = [NSString stringWithFormat:@"%@", jsonArray[@"objects"][0][@"title"]];
-        
-        NSMutableString *html = [NSMutableString stringWithFormat:@"<style>img {max-width: 100%%; width: auto; height: auto;}</style><h3>%@</h3>", title];
-        
-        [html appendFormat:@"%@", jsonArray[@"objects"][0][@"html"]];
-        
-       // NSLog(@"%@", html);
-
-        
-      //  [NSMutableString stringWithFormat:@"%@", jsonArray[@"objects"][0][@"text"]];
-        
-        [self.webView loadHTMLString:html baseURL:nil];
-        
-        self.textToRead = textToRead;
-
-    }];
+        self.textToRead = self.article.textToRead;
     
 }
 
@@ -77,7 +52,7 @@
     
     AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:textToRead];
     utterance.rate = 0.085;
-    utterance.pitchMultiplier = 0.85;
+    utterance.pitchMultiplier = 0.25;
     utterance.volume = 0.8;
     
     self.speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
