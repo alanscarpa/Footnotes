@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4545553B1B4C0C8C0070EDCB"
-               BuildableName = "FootnotesActionExtension.appex"
-               BlueprintName = "FootnotesActionExtension"
+               BlueprintIdentifier = "458F9E4D1B504CBD00D40EA7"
+               BuildableName = "ActionExtension.appex"
+               BlueprintName = "ActionExtension"
                ReferencedContainer = "container:Footnotes.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4545553B1B4C0C8C0070EDCB"
-            BuildableName = "FootnotesActionExtension.appex"
-            BlueprintName = "FootnotesActionExtension"
+            BlueprintIdentifier = "458F9E4D1B504CBD00D40EA7"
+            BuildableName = "ActionExtension.appex"
+            BlueprintName = "ActionExtension"
             ReferencedContainer = "container:Footnotes.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

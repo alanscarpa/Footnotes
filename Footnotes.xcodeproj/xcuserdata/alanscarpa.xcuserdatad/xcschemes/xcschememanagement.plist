@@ -4,20 +4,30 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ActionExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>Footnotes.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>FootnotesActionExtension.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>453FB7D21B504E3600C2B820</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4545553B1B4C0C8C0070EDCB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>458F9E4D1B504CBD00D40EA7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

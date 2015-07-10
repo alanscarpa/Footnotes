@@ -7,8 +7,11 @@
 //
 
 #import "LoginViewController.h"
+#import "ActionRequestHandler.h"
 
 @interface LoginViewController ()
+
+@property (nonatomic, strong) ActionRequestHandler *actionHandler;
 
 @end
 
@@ -17,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
+    
     
     
    

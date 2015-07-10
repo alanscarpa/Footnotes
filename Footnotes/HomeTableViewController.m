@@ -7,11 +7,15 @@
 //
 
 #import "HomeTableViewController.h"
+#import "DataStore.h"
+#import "Article.h"
 
 @interface HomeTableViewController ()
 
 
 @property (nonatomic, strong) NSMutableArray *testArticleTitles;
+@property (nonatomic, strong) NSArray *listOfArticleURLs;
+@property (nonatomic, strong) DataStore *dataStore;
 @end
 
 @implementation HomeTableViewController
@@ -19,7 +23,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    self.dataStore = [DataStore sharedDataStore];
+    
     self.testArticleTitles = [[NSMutableArray alloc]initWithArray:@[@"Article 1", @"Article 2", @"Article 3"]];
+    
+    NSFetchRequest *requestArticles = [NSFetchRequest fetchRequestWithEntityName:@"Article"];
+    
+    NSSortDescriptor *sortArticlesByName = [NSSortDescriptor sortDescriptorWithKey:@"url" ascending:YES];
+    requestArticles.sortDescriptors = @[sortArticlesByName];
+    self.listOfArticleURLs = [self.dataStore.managedObjectContext executeFetchRequest:requestArticles error:nil];
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -42,14 +56,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return self.testArticleTitles.count;
+    return self.listOfArticleURLs.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"articleTitleCell" forIndexPath:indexPath];
     
-    cell.textLabel.text = self.testArticleTitles[indexPath.row];
+    Article *article = self.listOfArticleURLs[indexPath.row];
+    cell.textLabel.text = article.title;
     
     return cell;
 }

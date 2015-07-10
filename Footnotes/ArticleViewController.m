@@ -59,7 +59,7 @@
         
         [html appendFormat:@"%@", jsonArray[@"objects"][0][@"html"]];
         
-        NSLog(@"%@", html);
+       // NSLog(@"%@", html);
 
         
       //  [NSMutableString stringWithFormat:@"%@", jsonArray[@"objects"][0][@"text"]];
