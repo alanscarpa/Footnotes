@@ -12,11 +12,14 @@
 
 
 
-@interface ArticleViewController ()
+@interface ArticleViewController () <AVSpeechSynthesizerDelegate>
+
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIButton *listenButton;
 
 @property (nonatomic, strong) NSString *textToRead;
+@property (nonatomic, strong) NSString *remainingTextToRead;
+
 @property (nonatomic, strong) AVSpeechSynthesizer *speechSynthesizer;
 @end
 
@@ -25,11 +28,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-   
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interruption:) name:AVAudioSessionInterruptionNotification object:nil];
     
-   
+    
     
 }
+
+- (void) interruption:(NSNotification*)notification
+{
+    NSDictionary *interruptionDict = notification.userInfo;
+    
+    NSInteger interruptionType = [interruptionDict[@"AVAudioSessionInterruptionTypeKey"] integerValue];
+    
+    if (interruptionType == AVAudioSessionInterruptionTypeBegan){
+        //        [self beginInterruption];
+        NSLog(@"Interruption occurred");
+
+    } else if (interruptionType == AVAudioSessionInterruptionTypeEnded) {
+        // [self endInterruption];
+        NSLog(@"Interruption ended");
+    }
+    
+}
+
 
 -(void)viewWillAppear:(BOOL)animated{
     // Remove weird white space added by UIWebview at top of page
@@ -52,13 +73,49 @@
     
     AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:textToRead];
     utterance.rate = 0.085;
-    utterance.pitchMultiplier = 0.25;
+    utterance.pitchMultiplier = 0.85;
     utterance.volume = 0.8;
+
+    // How to change voice accent
+//    NSLog(@"%@", [AVSpeechSynthesisVoice speechVoices]);
+//    AVSpeechSynthesisVoice *newVoice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-AU"];
+//    utterance.voice = newVoice;
     
     self.speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
-    
+    self.speechSynthesizer.delegate = self;
+
     [self.speechSynthesizer speakUtterance:utterance];
     
+}
+
+
+
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didPauseSpeechUtterance:(AVSpeechUtterance *)utterance{
+    
+    
+}
+
+
+
+
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance *)utterance{
+    
+    
+    
+}
+
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer willSpeakRangeOfSpeechString:(NSRange)characterRange utterance:(AVSpeechUtterance *)utterance{
+    
+    // called when each word is spoken
+    // could use to highlight words
+    // or even show progress maybe
+    // NSLog(@"%@", NSStringFromRange(characterRange));
+    // NSLog(@"%@", [utterance.speechString substringWithRange:characterRange]);
+    //NSRange newRange = NSMakeRange(characterRange.location, utterance.speechString.length);
+    
+    NSRange newRange = NSMakeRange(characterRange.location, utterance.speechString.length - characterRange.location);
+
+    self.remainingTextToRead = [utterance.speechString substringWithRange:newRange];
 }
 
 - (IBAction)listenButtonPressed:(id)sender {
@@ -69,9 +126,10 @@
     if ([[self.listenButton titleForState:UIControlStateNormal] isEqualToString:@"Stop Listening"]){
         [self.listenButton setTitle:@"Listen to Article" forState:UIControlStateNormal];
         [self.speechSynthesizer pauseSpeakingAtBoundary:AVSpeechBoundaryImmediate];
+        NSLog(@"%@", self.remainingTextToRead);
+        
     } else {
         [self.listenButton setTitle:@"Stop Listening" forState:UIControlStateNormal];
-        
         if ([self.speechSynthesizer isPaused]){
            [self.speechSynthesizer continueSpeaking];
         } else {

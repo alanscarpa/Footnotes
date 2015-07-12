@@ -14,7 +14,6 @@
 @interface HomeTableViewController ()
 
 
-@property (nonatomic, strong) NSMutableArray *testArticleTitles;
 @property (nonatomic, strong) NSArray *listOfArticleURLs;
 @property (nonatomic, strong) DataStore *dataStore;
 @end
@@ -27,14 +26,20 @@
     
     self.dataStore = [DataStore sharedDataStore];
     
-    self.testArticleTitles = [[NSMutableArray alloc]initWithArray:@[@"Article 1", @"Article 2", @"Article 3"]];
     
     NSFetchRequest *requestArticles = [NSFetchRequest fetchRequestWithEntityName:@"Article"];
     
     NSSortDescriptor *sortArticlesByName = [NSSortDescriptor sortDescriptorWithKey:@"url" ascending:YES];
     requestArticles.sortDescriptors = @[sortArticlesByName];
+    //self.listOfArticleURLs = [[NSMutableArray alloc]init];
+   // NSLog(@"%@", [self.dataStore.managedObjectContext executeFetchRequest:requestArticles error:nil]);
+    
     self.listOfArticleURLs = [self.dataStore.managedObjectContext executeFetchRequest:requestArticles error:nil];
     
+    
+    
+ //   [self.dataStore.managedObjectContext deleteObject:self.listOfArticleURLs[0]];
+ //   [self.dataStore save];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -43,12 +48,46 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete){
+        [self.dataStore.managedObjectContext deleteObject:self.listOfArticleURLs[indexPath.row]];
+        NSMutableArray *tempArray = [[NSMutableArray alloc]initWithArray:[self.listOfArticleURLs mutableCopy]];
+        [tempArray removeObjectAtIndex:indexPath.row];
+        self.listOfArticleURLs = tempArray;
+        [self.dataStore save];
+        [self.tableView reloadData];
+    }
+    
+}
+
 #pragma mark - Table view data source
+
+
+- (void)tableView:(UITableView*)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath{
+//    [self.dataStore.managedObjectContext deleteObject:self.listOfArticleURLs[indexPath.row]];
+//    [self.dataStore save];
+//    [self.tableView reloadData];
+
+}
+- (void)tableView:(UITableView*)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath{
+//        [self.dataStore.managedObjectContext deleteObject:self.listOfArticleURLs[indexPath.row]];
+//        [self.dataStore save];
+//        [self.tableView reloadData];
+
+}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
@@ -63,9 +102,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"articleTitleCell" forIndexPath:indexPath];
-    
-    Article *article = self.listOfArticleURLs[indexPath.row];
-    cell.textLabel.text = article.title;
+    if (self.listOfArticleURLs.count > 0){
+        Article *article = self.listOfArticleURLs[indexPath.row];
+        cell.textLabel.text = article.title;
+    }
     
     return cell;
 }

@@ -63,20 +63,7 @@
     NSString *urlString = javaScriptPreprocessingResults[@"baseURI"];
     NSLog(@"%@", urlString);
     [ArticleParser saveArticleToCoreData:urlString dataStore:self.dataStore];
-    
-    // NSLog(@"%@", urlString);
-    
-    
-    
-    //    NSFetchRequest *requestArticles = [NSFetchRequest fetchRequestWithEntityName:@"Article"];
-    //
-    //    NSSortDescriptor *sortArticlesByName = [NSSortDescriptor sortDescriptorWithKey:@"url" ascending:YES];
-    //    requestArticles.sortDescriptors = @[sortArticlesByName];
-    //    NSArray *listOfArticleURLs = [self.dataStore.managedObjectContext executeFetchRequest:requestArticles error:nil];
-    //
-    //    for (Article *article in listOfArticleURLs){
-    //        NSLog(@"%@", article.url);
-    //    }
+   
     
 }
 
@@ -113,14 +100,10 @@
             article.textToRead = textToRead;
             [self.dataStore save];
             NSLog(@"Done saving");
-            
-            //    [self.webView loadHTMLString:html baseURL:nil];
-            //    self.textToRead = textToRead;
-            
-            
-            // Somehow show alert?
-            //  NSLog(@"Problem saving article.");
+
         } else {
+            // Somehow show error message?
+            // might need to implement a view
             NSLog(@"%@", response);
             NSLog(@"%@", connectionError);
         }
