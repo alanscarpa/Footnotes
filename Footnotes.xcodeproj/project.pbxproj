@@ -16,17 +16,18 @@
 		45AAE7951B506BC700E8F501 /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 453FB7E31B505A5400C2B820 /* Data.xcdatamodeld */; };
 		45AAE7AB1B50779900E8F501 /* ArticleParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AAE7AA1B50779900E8F501 /* ArticleParser.m */; };
 		45AAE7AC1B50779900E8F501 /* ArticleParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AAE7AA1B50779900E8F501 /* ArticleParser.m */; };
-		45AAE7AF1B5079A400E8F501 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AAE7AE1B5079A400E8F501 /* Article.m */; };
-		45AAE7B01B5079A400E8F501 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AAE7AE1B5079A400E8F501 /* Article.m */; };
+		45AAE7BB1B53302000E8F501 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AAE7BA1B53302000E8F501 /* Article.m */; };
+		45AAE7BC1B53302000E8F501 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AAE7BA1B53302000E8F501 /* Article.m */; };
 		45C690D01B45D560005D5FFA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C690CF1B45D560005D5FFA /* main.m */; };
 		45C690D31B45D560005D5FFA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C690D21B45D560005D5FFA /* AppDelegate.m */; };
 		45C690D61B45D560005D5FFA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C690D51B45D560005D5FFA /* LoginViewController.m */; };
 		45C690D91B45D560005D5FFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45C690D71B45D560005D5FFA /* Main.storyboard */; };
-		45C690DB1B45D560005D5FFA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45C690DA1B45D560005D5FFA /* Images.xcassets */; };
 		45C690DE1B45D560005D5FFA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45C690DC1B45D560005D5FFA /* LaunchScreen.xib */; };
 		45C690EA1B45D560005D5FFA /* FootnotesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C690E91B45D560005D5FFA /* FootnotesTests.m */; };
 		45C690F51B45D6E8005D5FFA /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C690F41B45D6E8005D5FFA /* HomeTableViewController.m */; };
 		45C690F81B45D85A005D5FFA /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C690F71B45D85A005D5FFA /* ArticleViewController.m */; };
+		45F0D8B31B535D42008B9806 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45F0D8B21B535D42008B9806 /* images.xcassets */; };
+		45F0D8B41B535D42008B9806 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45F0D8B21B535D42008B9806 /* images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,8 +74,8 @@
 		45AAE79F1B5072E700E8F501 /* Footnotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Footnotes.entitlements; sourceTree = "<group>"; };
 		45AAE7A91B50779900E8F501 /* ArticleParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleParser.h; sourceTree = "<group>"; };
 		45AAE7AA1B50779900E8F501 /* ArticleParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleParser.m; sourceTree = "<group>"; };
-		45AAE7AD1B5079A400E8F501 /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
-		45AAE7AE1B5079A400E8F501 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
+		45AAE7B91B53302000E8F501 /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
+		45AAE7BA1B53302000E8F501 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
 		45C690CA1B45D560005D5FFA /* Footnotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Footnotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C690CE1B45D560005D5FFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45C690CF1B45D560005D5FFA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -83,7 +84,6 @@
 		45C690D41B45D560005D5FFA /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		45C690D51B45D560005D5FFA /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		45C690D81B45D560005D5FFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		45C690DA1B45D560005D5FFA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		45C690DD1B45D560005D5FFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		45C690E31B45D560005D5FFA /* FootnotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FootnotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C690E81B45D560005D5FFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -92,6 +92,7 @@
 		45C690F41B45D6E8005D5FFA /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
 		45C690F61B45D85A005D5FFA /* ArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleViewController.h; sourceTree = "<group>"; };
 		45C690F71B45D85A005D5FFA /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleViewController.m; sourceTree = "<group>"; };
+		45F0D8B21B535D42008B9806 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = images.xcassets; path = ../images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,8 +143,8 @@
 		45AAE7A01B5076AF00E8F501 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				45AAE7AD1B5079A400E8F501 /* Article.h */,
-				45AAE7AE1B5079A400E8F501 /* Article.m */,
+				45AAE7B91B53302000E8F501 /* Article.h */,
+				45AAE7BA1B53302000E8F501 /* Article.m */,
 				453FB7E31B505A5400C2B820 /* Data.xcdatamodeld */,
 			);
 			name = "Core Data";
@@ -186,8 +187,8 @@
 				45AAE7AA1B50779900E8F501 /* ArticleParser.m */,
 				453FB7EC1B505B7300C2B820 /* DataStore.h */,
 				453FB7ED1B505B7300C2B820 /* DataStore.m */,
+				45F0D8B21B535D42008B9806 /* images.xcassets */,
 				45AAE7A01B5076AF00E8F501 /* Core Data */,
-				45C690DA1B45D560005D5FFA /* Images.xcassets */,
 				45C690DC1B45D560005D5FFA /* LaunchScreen.xib */,
 				45C690CD1B45D560005D5FFA /* Supporting Files */,
 			);
@@ -336,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				453FB7DB1B504E3600C2B820 /* Action.js in Resources */,
+				45F0D8B41B535D42008B9806 /* images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,9 +345,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45F0D8B31B535D42008B9806 /* images.xcassets in Resources */,
 				45C690D91B45D560005D5FFA /* Main.storyboard in Resources */,
 				45C690DE1B45D560005D5FFA /* LaunchScreen.xib in Resources */,
-				45C690DB1B45D560005D5FFA /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,7 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45AAE7B01B5079A400E8F501 /* Article.m in Sources */,
+				45AAE7BC1B53302000E8F501 /* Article.m in Sources */,
 				453FB7D91B504E3600C2B820 /* ActionRequestHandler.m in Sources */,
 				45AAE7AC1B50779900E8F501 /* ArticleParser.m in Sources */,
 				45AAE7951B506BC700E8F501 /* Data.xcdatamodeld in Sources */,
@@ -377,7 +379,7 @@
 			files = (
 				45C690F81B45D85A005D5FFA /* ArticleViewController.m in Sources */,
 				45C690F51B45D6E8005D5FFA /* HomeTableViewController.m in Sources */,
-				45AAE7AF1B5079A400E8F501 /* Article.m in Sources */,
+				45AAE7BB1B53302000E8F501 /* Article.m in Sources */,
 				45264EA21B506AB700CD2D54 /* Data.xcdatamodeld in Sources */,
 				45AAE7AB1B50779900E8F501 /* ArticleParser.m in Sources */,
 				45C690D61B45D560005D5FFA /* LoginViewController.m in Sources */,
@@ -433,6 +435,8 @@
 		453FB7E01B504E3600C2B820 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = ActionExtension/ActionExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -445,12 +449,15 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		453FB7E11B504E3600C2B820 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = ActionExtension/ActionExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -459,6 +466,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -546,6 +554,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Footnotes/Footnotes.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -553,6 +562,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -560,6 +570,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Footnotes/Footnotes.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -567,6 +578,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

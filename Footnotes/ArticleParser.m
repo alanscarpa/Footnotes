@@ -28,9 +28,10 @@
             NSDictionary *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             
             
-            NSString *textToRead = [NSString stringWithFormat:@"%@", jsonArray[@"objects"][0][@"text"]];
+            NSString *textToRead = [NSString stringWithFormat:@".  %@", jsonArray[@"objects"][0][@"text"]];
             
             NSString *title = [NSString stringWithFormat:@"%@", jsonArray[@"objects"][0][@"title"]];
+            textToRead = [title stringByAppendingString:textToRead];
             
             NSMutableString *html = [NSMutableString stringWithFormat:@"<style>img {max-width: 100%%; width: auto; height: auto;}</style><h3>%@</h3>", title];
             
@@ -41,6 +42,9 @@
             article.html = (NSString*)html;
             article.title = title;
             article.textToRead = textToRead;
+            article.remainingTextToRead = textToRead;
+            article.hasBegunReading = @0;
+            article.dateAdded = [NSDate date];
             [dataStore save];
             NSLog(@"Done saving");
             

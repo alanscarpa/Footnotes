@@ -2,7 +2,7 @@
 //  Article.m
 //  Footnotes
 //
-//  Created by Alan Scarpa on 7/10/15.
+//  Created by Alan Scarpa on 7/12/15.
 //  Copyright (c) 2015 Skytop Designs. All rights reserved.
 //
 
@@ -15,5 +15,8 @@
 @dynamic title;
 @dynamic html;
 @dynamic textToRead;
+@dynamic remainingTextToRead;
+@dynamic hasBegunReading;
+@dynamic dateAdded;
 
 @end

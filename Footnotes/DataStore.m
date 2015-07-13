@@ -20,7 +20,6 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedDataStore = [[DataStore alloc] init];
-        NSLog(@"Should only be seen once!");
     });
     
     return _sharedDataStore;

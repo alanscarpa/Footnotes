@@ -14,7 +14,7 @@
 @interface HomeTableViewController ()
 
 
-@property (nonatomic, strong) NSArray *listOfArticleURLs;
+@property (nonatomic, strong) NSArray *listOfArticles;
 @property (nonatomic, strong) DataStore *dataStore;
 @end
 
@@ -29,23 +29,14 @@
     
     NSFetchRequest *requestArticles = [NSFetchRequest fetchRequestWithEntityName:@"Article"];
     
-    NSSortDescriptor *sortArticlesByName = [NSSortDescriptor sortDescriptorWithKey:@"url" ascending:YES];
-    requestArticles.sortDescriptors = @[sortArticlesByName];
-    //self.listOfArticleURLs = [[NSMutableArray alloc]init];
-   // NSLog(@"%@", [self.dataStore.managedObjectContext executeFetchRequest:requestArticles error:nil]);
+    NSSortDescriptor *sortArticlesByDate = [NSSortDescriptor sortDescriptorWithKey:@"dateAdded" ascending:NO];
+    requestArticles.sortDescriptors = @[sortArticlesByDate];
     
-    self.listOfArticleURLs = [self.dataStore.managedObjectContext executeFetchRequest:requestArticles error:nil];
+    // NSLog(@"%@", [self.dataStore.managedObjectContext executeFetchRequest:requestArticles error:nil]);
     
+    self.listOfArticles = [self.dataStore.managedObjectContext executeFetchRequest:requestArticles error:nil];
     
-    
- //   [self.dataStore.managedObjectContext deleteObject:self.listOfArticleURLs[0]];
- //   [self.dataStore save];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 
@@ -62,12 +53,19 @@
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (editingStyle == UITableViewCellEditingStyleDelete){
-        [self.dataStore.managedObjectContext deleteObject:self.listOfArticleURLs[indexPath.row]];
-        NSMutableArray *tempArray = [[NSMutableArray alloc]initWithArray:[self.listOfArticleURLs mutableCopy]];
+        [self.dataStore.managedObjectContext deleteObject:self.listOfArticles[indexPath.row]];
+        NSMutableArray *tempArray = [[NSMutableArray alloc]initWithArray:[self.listOfArticles mutableCopy]];
         [tempArray removeObjectAtIndex:indexPath.row];
-        self.listOfArticleURLs = tempArray;
+        self.listOfArticles = tempArray;
         [self.dataStore save];
-        [self.tableView reloadData];
+        
+        [UIView animateWithDuration:1.0 animations:^{
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }];
+
+        
+        
+        
     }
     
 }
@@ -76,13 +74,13 @@
 
 
 - (void)tableView:(UITableView*)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath{
-//    [self.dataStore.managedObjectContext deleteObject:self.listOfArticleURLs[indexPath.row]];
+//    [self.dataStore.managedObjectContext deleteObject:self.listOfArticles[indexPath.row]];
 //    [self.dataStore save];
 //    [self.tableView reloadData];
 
 }
 - (void)tableView:(UITableView*)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath{
-//        [self.dataStore.managedObjectContext deleteObject:self.listOfArticleURLs[indexPath.row]];
+//        [self.dataStore.managedObjectContext deleteObject:self.listOfArticles[indexPath.row]];
 //        [self.dataStore save];
 //        [self.tableView reloadData];
 
@@ -96,14 +94,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return self.listOfArticleURLs.count;
+    return self.listOfArticles.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"articleTitleCell" forIndexPath:indexPath];
-    if (self.listOfArticleURLs.count > 0){
-        Article *article = self.listOfArticleURLs[indexPath.row];
+    
+    if (self.listOfArticles.count > 0){
+        Article *article = self.listOfArticles[indexPath.row];
         cell.textLabel.text = article.title;
     }
     
@@ -118,7 +117,7 @@
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
 
     ArticleViewController *destinationVC = segue.destinationViewController;
-    destinationVC.article = self.listOfArticleURLs[indexPath.row];
+    destinationVC.article = self.listOfArticles[indexPath.row];
     
 }
 

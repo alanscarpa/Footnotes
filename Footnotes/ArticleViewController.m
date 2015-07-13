@@ -8,8 +8,7 @@
 
 #import "ArticleViewController.h"
 #import <AVFoundation/AVFoundation.h>
-
-
+#import "DataStore.h"
 
 
 @interface ArticleViewController () <AVSpeechSynthesizerDelegate>
@@ -18,19 +17,21 @@
 @property (weak, nonatomic) IBOutlet UIButton *listenButton;
 
 @property (nonatomic, strong) NSString *textToRead;
-@property (nonatomic, strong) NSString *remainingTextToRead;
 
 @property (nonatomic, strong) AVSpeechSynthesizer *speechSynthesizer;
+@property (nonatomic, strong) DataStore *dataStore;
 @end
 
 @implementation ArticleViewController
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interruption:) name:AVAudioSessionInterruptionNotification object:nil];
     
-    
+    NSLog(@"Article begun reading: %@", self.article.hasBegunReading);
     
 }
 
@@ -43,7 +44,8 @@
     if (interruptionType == AVAudioSessionInterruptionTypeBegan){
         //        [self beginInterruption];
         NSLog(@"Interruption occurred");
-
+        [self.dataStore save];
+        
     } else if (interruptionType == AVAudioSessionInterruptionTypeEnded) {
         // [self endInterruption];
         NSLog(@"Interruption ended");
@@ -56,15 +58,24 @@
     // Remove weird white space added by UIWebview at top of page
     self.automaticallyAdjustsScrollViewInsets = NO;
     
+    self.dataStore = [DataStore sharedDataStore];
+    
     [self loadArticle:self.article];
     
 }
 
--(void)loadArticle:(Article*)articleURL{
+-(void)loadArticle:(Article*)article{
     
         [self.webView loadHTMLString:self.article.html baseURL:nil];
-        
+    
+    if ([article.hasBegunReading isEqual:@0]){
+        // Read from the beginning of article
         self.textToRead = self.article.textToRead;
+    } else {
+        // Article has been at least partially read.
+        // Therefore, pick up from where we left off.
+        self.textToRead = self.article.remainingTextToRead;
+    }
     
 }
 
@@ -76,7 +87,7 @@
     utterance.pitchMultiplier = 0.85;
     utterance.volume = 0.8;
 
-    // How to change voice accent
+//    How to change voice accent
 //    NSLog(@"%@", [AVSpeechSynthesisVoice speechVoices]);
 //    AVSpeechSynthesisVoice *newVoice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-AU"];
 //    utterance.voice = newVoice;
@@ -114,28 +125,32 @@
     //NSRange newRange = NSMakeRange(characterRange.location, utterance.speechString.length);
     
     NSRange newRange = NSMakeRange(characterRange.location, utterance.speechString.length - characterRange.location);
-
-    self.remainingTextToRead = [utterance.speechString substringWithRange:newRange];
+    self.article.remainingTextToRead = [utterance.speechString substringWithRange:newRange];
+    
 }
 
 - (IBAction)listenButtonPressed:(id)sender {
     
-    //NSLog(@"%@", self.textToRead);
-
-    
+    // STOP SPEAKING
     if ([[self.listenButton titleForState:UIControlStateNormal] isEqualToString:@"Stop Listening"]){
         [self.listenButton setTitle:@"Listen to Article" forState:UIControlStateNormal];
         [self.speechSynthesizer pauseSpeakingAtBoundary:AVSpeechBoundaryImmediate];
-        NSLog(@"%@", self.remainingTextToRead);
+        [self.dataStore save];
         
     } else {
+        
+    // START SPEAKING
         [self.listenButton setTitle:@"Stop Listening" forState:UIControlStateNormal];
         if ([self.speechSynthesizer isPaused]){
            [self.speechSynthesizer continueSpeaking];
         } else {
-            
-            [self speakText:self.textToRead];
-
+            if ([self.article.hasBegunReading isEqual: @0]){
+                self.article.hasBegunReading = @1;
+                [self.dataStore save];
+                [self speakText:self.article.textToRead];
+            } else {
+                [self speakText:self.article.remainingTextToRead];
+            }
         }
 
     }
@@ -155,11 +170,12 @@
     NSLog(@"leaving!");
     if ([self.speechSynthesizer isSpeaking]){
         [self.speechSynthesizer pauseSpeakingAtBoundary:AVSpeechBoundaryImmediate];
+        [self.dataStore save];
+
      }
         AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@""];
         [self.speechSynthesizer speakUtterance:utterance];
         [self.speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
-   
 }
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
