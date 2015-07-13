@@ -12,6 +12,145 @@
 
 @implementation ArticleParser
 
+
++ (NSString*)stringByStrippingHTML:(NSString*)stringToStrip {
+    NSRange r;
+    NSString *s = stringToStrip;
+    while ((r = [s rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
+        s = [s stringByReplacingCharactersInRange:r withString:@""];
+    return s;
+}
+//
+//// MYABILITY
+//+(void)saveArticleToCoreData:(NSString*)articleURL dataStore:(DataStore*)dataStore{
+//    
+//    NSLog(@"In here!");
+//    
+//    articleURL = [articleURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+//    NSString *escapedURL = [@"http://readability.com/api/content/v1/parser?token=781e1dfed669b731e19f697ad977c3b8a0304d9c&url=" stringByAppendingString:articleURL];
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:escapedURL]
+//                                                           cachePolicy:NSURLRequestReturnCacheDataElseLoad
+//                                                       timeoutInterval:10];
+//    
+//    [request setHTTPMethod: @"GET"];
+//    
+//    Article *article = [NSEntityDescription insertNewObjectForEntityForName:@"Article" inManagedObjectContext:dataStore.managedObjectContext];
+//    article.url = articleURL;
+//    article.html = (NSString*)html;
+//    article.title = title;
+//    article.textToRead = textToRead;
+//    article.remainingTextToRead = textToRead;
+//    article.hasBegunReading = @0;
+//    article.dateAdded = [NSDate date];
+//    [dataStore save];
+//    
+//    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//        
+//        if (data){
+//            NSDictionary *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//            
+//            NSLog(@"%@", jsonArray);
+//            
+//            NSString *textToRead = [NSString stringWithFormat:@".  %@", jsonArray[@"content"]];
+//            
+//            NSString *title = [NSString stringWithFormat:@"%@", jsonArray[@"title"]];
+//            textToRead = [title stringByAppendingString:textToRead];
+//            textToRead = [self stringByStrippingHTML:textToRead];
+//            NSLog(@"%@", textToRead);
+//            
+//            NSMutableString *html = [NSMutableString stringWithFormat:@"<style>img {max-width: 100%%; width: auto; height: auto;}</style><h3>%@</h3>", title];
+//            
+//            [html appendFormat:@"%@", jsonArray[@"content"]];
+//            
+//            Article *article = [NSEntityDescription insertNewObjectForEntityForName:@"Article" inManagedObjectContext:dataStore.managedObjectContext];
+//            article.url = articleURL;
+//            article.html = (NSString*)html;
+//            article.title = title;
+//            article.textToRead = textToRead;
+//            article.remainingTextToRead = textToRead;
+//            article.hasBegunReading = @0;
+//            article.dateAdded = [NSDate date];
+//            [dataStore save];
+//            NSLog(@"Done saving");
+//            
+//            //    [self.webView loadHTMLString:html baseURL:nil];
+//            //    self.textToRead = textToRead;
+//            
+//        } else {
+//            // Show Alert Somehow
+//            NSLog(@"Error sending to DiffBot");
+//            NSLog(@"%@", response);
+//            NSLog(@"%@", connectionError);
+//        }
+//        
+//        
+//        
+//        
+//    }];
+//}
+
+// READABILITY
+//+(void)saveArticleToCoreData:(NSString*)articleURL dataStore:(DataStore*)dataStore{
+//    
+//    NSLog(@"In here!");
+//    
+//    articleURL = [articleURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+//    NSString *escapedURL = [@"http://readability.com/api/content/v1/parser?token=781e1dfed669b731e19f697ad977c3b8a0304d9c&url=" stringByAppendingString:articleURL];
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:escapedURL]
+//                                                           cachePolicy:NSURLRequestReturnCacheDataElseLoad
+//                                                       timeoutInterval:10];
+//    
+//    [request setHTTPMethod: @"GET"];
+//    
+//    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//        
+//        if (data){
+//            NSDictionary *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//            
+//            NSLog(@"%@", jsonArray);
+//            
+//            NSString *textToRead = [NSString stringWithFormat:@".  %@", jsonArray[@"content"]];
+//            
+//            NSString *title = [NSString stringWithFormat:@"%@", jsonArray[@"title"]];
+//            textToRead = [title stringByAppendingString:textToRead];
+//            textToRead = [self stringByStrippingHTML:textToRead];
+//            NSLog(@"%@", textToRead);
+//            
+//            NSMutableString *html = [NSMutableString stringWithFormat:@"<style>img {max-width: 100%%; width: auto; height: auto;}</style><h3>%@</h3>", title];
+//            
+//            [html appendFormat:@"%@", jsonArray[@"content"]];
+//            
+//            Article *article = [NSEntityDescription insertNewObjectForEntityForName:@"Article" inManagedObjectContext:dataStore.managedObjectContext];
+//            article.url = articleURL;
+//            article.html = (NSString*)html;
+//            article.title = title;
+//            article.textToRead = textToRead;
+//            article.remainingTextToRead = textToRead;
+//            article.hasBegunReading = @0;
+//            article.dateAdded = [NSDate date];
+//            [dataStore save];
+//            NSLog(@"Done saving");
+//            
+//            //    [self.webView loadHTMLString:html baseURL:nil];
+//            //    self.textToRead = textToRead;
+//            
+//        } else {
+//            // Show Alert Somehow
+//            NSLog(@"Error sending to DiffBot");
+//            NSLog(@"%@", response);
+//            NSLog(@"%@", connectionError);
+//        }
+//        
+//        
+//        
+//        
+//    }];
+//}
+
+
+
+
+ // DIFFBOT
 +(void)saveArticleToCoreData:(NSString*)articleURL dataStore:(DataStore*)dataStore{
 
     articleURL = [articleURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
@@ -36,6 +175,8 @@
             NSMutableString *html = [NSMutableString stringWithFormat:@"<style>img {max-width: 100%%; width: auto; height: auto;}</style><h3>%@</h3>", title];
             
             [html appendFormat:@"%@", jsonArray[@"objects"][0][@"html"]];
+            NSLog(@"HTML:  %@", html);
+            
             
             Article *article = [NSEntityDescription insertNewObjectForEntityForName:@"Article" inManagedObjectContext:dataStore.managedObjectContext];
             article.url = articleURL;

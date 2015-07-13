@@ -28,6 +28,8 @@
 		45C690F81B45D85A005D5FFA /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C690F71B45D85A005D5FFA /* ArticleViewController.m */; };
 		45F0D8B31B535D42008B9806 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45F0D8B21B535D42008B9806 /* images.xcassets */; };
 		45F0D8B41B535D42008B9806 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45F0D8B21B535D42008B9806 /* images.xcassets */; };
+		45F0D8B61B540042008B9806 /* parser.js in Resources */ = {isa = PBXBuildFile; fileRef = 45F0D8B51B540042008B9806 /* parser.js */; };
+		45F0D8B71B5400AE008B9806 /* parser.js in Sources */ = {isa = PBXBuildFile; fileRef = 45F0D8B51B540042008B9806 /* parser.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,7 @@
 		45C690F61B45D85A005D5FFA /* ArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleViewController.h; sourceTree = "<group>"; };
 		45C690F71B45D85A005D5FFA /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleViewController.m; sourceTree = "<group>"; };
 		45F0D8B21B535D42008B9806 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = images.xcassets; path = ../images.xcassets; sourceTree = "<group>"; };
+		45F0D8B51B540042008B9806 /* parser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = parser.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +190,7 @@
 				45AAE7AA1B50779900E8F501 /* ArticleParser.m */,
 				453FB7EC1B505B7300C2B820 /* DataStore.h */,
 				453FB7ED1B505B7300C2B820 /* DataStore.m */,
+				45F0D8B51B540042008B9806 /* parser.js */,
 				45F0D8B21B535D42008B9806 /* images.xcassets */,
 				45AAE7A01B5076AF00E8F501 /* Core Data */,
 				45C690DC1B45D560005D5FFA /* LaunchScreen.xib */,
@@ -346,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45F0D8B31B535D42008B9806 /* images.xcassets in Resources */,
+				45F0D8B61B540042008B9806 /* parser.js in Resources */,
 				45C690D91B45D560005D5FFA /* Main.storyboard in Resources */,
 				45C690DE1B45D560005D5FFA /* LaunchScreen.xib in Resources */,
 			);
@@ -365,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45F0D8B71B5400AE008B9806 /* parser.js in Sources */,
 				45AAE7BC1B53302000E8F501 /* Article.m in Sources */,
 				453FB7D91B504E3600C2B820 /* ActionRequestHandler.m in Sources */,
 				45AAE7AC1B50779900E8F501 /* ArticleParser.m in Sources */,
