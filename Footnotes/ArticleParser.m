@@ -106,9 +106,9 @@
             textToRead = [title stringByAppendingString:textToRead];
             textToRead = [self stringByStrippingHTML:textToRead];
             
-            NSAttributedString *attString = [[NSAttributedString alloc]initWithData:[textToRead dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)} documentAttributes:nil error:nil];
+            NSAttributedString *attributedString = [[NSAttributedString alloc]initWithData:[textToRead dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)} documentAttributes:nil error:nil];
             
-            //NSLog(@"%@", attString.string);
+            //NSLog(@"%@", attributedString.string);
             
             NSMutableString *html = [NSMutableString stringWithFormat:@"<link rel=\"stylesheet\" type=\"text/css\" href=\"normalize.css\"><link rel=\"stylesheet\" type=\"text/css\" href=\"foundation.css\"><script src=\"modernizr.js\"></script><script src=\"jquery.js\"></script><script src=\"foundation.min.js\"></script><h3>%@</h3>", title];
             
@@ -118,8 +118,8 @@
             article.url = articleURL;
             article.html = (NSString*)html;
             article.title = title;
-            article.textToRead = textToRead;
-            article.remainingTextToRead = textToRead;
+            article.textToRead = attributedString.string;
+            article.remainingTextToRead = attributedString.string;
             article.hasBegunReading = @0;
             article.dateAdded = [NSDate date];
             [dataStore save];
