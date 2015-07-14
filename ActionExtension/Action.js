@@ -31,12 +31,12 @@ Action.prototype = {
         var newBackgroundColor = arguments["newBackgroundColor"]
         if (newBackgroundColor) {
             // We'll set document.body.style.background, to override any
-            // existing background.
-            document.body.style.background = newBackgroundColor
+            //existing background.
+            // document.body.style.background = newBackgroundColor
         } else {
             // If nothing's been returned to us, we'll set the background to
             // blue.
-            document.body.style.background= "blue"
+            // document.body.style.background= "blue"
         }
     }
     

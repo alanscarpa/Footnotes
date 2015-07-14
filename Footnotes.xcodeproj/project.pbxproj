@@ -18,6 +18,20 @@
 		45AAE7AC1B50779900E8F501 /* ArticleParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AAE7AA1B50779900E8F501 /* ArticleParser.m */; };
 		45AAE7BB1B53302000E8F501 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AAE7BA1B53302000E8F501 /* Article.m */; };
 		45AAE7BC1B53302000E8F501 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AAE7BA1B53302000E8F501 /* Article.m */; };
+		45BFFC3B1B5490E900B75FB8 /* reader.js in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFC3A1B5490E900B75FB8 /* reader.js */; };
+		45BFFC3C1B5490E900B75FB8 /* reader.js in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFC3A1B5490E900B75FB8 /* reader.js */; };
+		45BFFC401B54983B00B75FB8 /* foundation.css in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFC3D1B54983B00B75FB8 /* foundation.css */; };
+		45BFFC411B54983B00B75FB8 /* foundation.css in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFC3D1B54983B00B75FB8 /* foundation.css */; };
+		45BFFC421B54983B00B75FB8 /* foundation.min.css in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFC3E1B54983B00B75FB8 /* foundation.min.css */; };
+		45BFFC431B54983B00B75FB8 /* foundation.min.css in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFC3E1B54983B00B75FB8 /* foundation.min.css */; };
+		45BFFC441B54983B00B75FB8 /* normalize.css in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFC3F1B54983B00B75FB8 /* normalize.css */; };
+		45BFFC451B54983B00B75FB8 /* normalize.css in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFC3F1B54983B00B75FB8 /* normalize.css */; };
+		45BFFC491B54987D00B75FB8 /* foundation.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFC461B54987D00B75FB8 /* foundation.min.js */; };
+		45BFFC4A1B54987D00B75FB8 /* foundation.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFC461B54987D00B75FB8 /* foundation.min.js */; };
+		45BFFC4B1B54987D00B75FB8 /* jquery.js in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFC471B54987D00B75FB8 /* jquery.js */; };
+		45BFFC4C1B54987D00B75FB8 /* jquery.js in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFC471B54987D00B75FB8 /* jquery.js */; };
+		45BFFC4D1B54987D00B75FB8 /* modernizr.js in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFC481B54987D00B75FB8 /* modernizr.js */; };
+		45BFFC4E1B54987D00B75FB8 /* modernizr.js in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFC481B54987D00B75FB8 /* modernizr.js */; };
 		45C690D01B45D560005D5FFA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C690CF1B45D560005D5FFA /* main.m */; };
 		45C690D31B45D560005D5FFA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C690D21B45D560005D5FFA /* AppDelegate.m */; };
 		45C690D61B45D560005D5FFA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C690D51B45D560005D5FFA /* LoginViewController.m */; };
@@ -28,8 +42,6 @@
 		45C690F81B45D85A005D5FFA /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C690F71B45D85A005D5FFA /* ArticleViewController.m */; };
 		45F0D8B31B535D42008B9806 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45F0D8B21B535D42008B9806 /* images.xcassets */; };
 		45F0D8B41B535D42008B9806 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45F0D8B21B535D42008B9806 /* images.xcassets */; };
-		45F0D8B61B540042008B9806 /* parser.js in Resources */ = {isa = PBXBuildFile; fileRef = 45F0D8B51B540042008B9806 /* parser.js */; };
-		45F0D8B71B5400AE008B9806 /* parser.js in Sources */ = {isa = PBXBuildFile; fileRef = 45F0D8B51B540042008B9806 /* parser.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +90,13 @@
 		45AAE7AA1B50779900E8F501 /* ArticleParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleParser.m; sourceTree = "<group>"; };
 		45AAE7B91B53302000E8F501 /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
 		45AAE7BA1B53302000E8F501 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
+		45BFFC3A1B5490E900B75FB8 /* reader.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = reader.js; sourceTree = "<group>"; };
+		45BFFC3D1B54983B00B75FB8 /* foundation.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = foundation.css; sourceTree = "<group>"; };
+		45BFFC3E1B54983B00B75FB8 /* foundation.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = foundation.min.css; sourceTree = "<group>"; };
+		45BFFC3F1B54983B00B75FB8 /* normalize.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = normalize.css; sourceTree = "<group>"; };
+		45BFFC461B54987D00B75FB8 /* foundation.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = foundation.min.js; sourceTree = "<group>"; };
+		45BFFC471B54987D00B75FB8 /* jquery.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.js; sourceTree = "<group>"; };
+		45BFFC481B54987D00B75FB8 /* modernizr.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = modernizr.js; sourceTree = "<group>"; };
 		45C690CA1B45D560005D5FFA /* Footnotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Footnotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C690CE1B45D560005D5FFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45C690CF1B45D560005D5FFA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -95,7 +114,6 @@
 		45C690F61B45D85A005D5FFA /* ArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleViewController.h; sourceTree = "<group>"; };
 		45C690F71B45D85A005D5FFA /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleViewController.m; sourceTree = "<group>"; };
 		45F0D8B21B535D42008B9806 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = images.xcassets; path = ../images.xcassets; sourceTree = "<group>"; };
-		45F0D8B51B540042008B9806 /* parser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = parser.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,7 +208,13 @@
 				45AAE7AA1B50779900E8F501 /* ArticleParser.m */,
 				453FB7EC1B505B7300C2B820 /* DataStore.h */,
 				453FB7ED1B505B7300C2B820 /* DataStore.m */,
-				45F0D8B51B540042008B9806 /* parser.js */,
+				45BFFC3D1B54983B00B75FB8 /* foundation.css */,
+				45BFFC3E1B54983B00B75FB8 /* foundation.min.css */,
+				45BFFC3F1B54983B00B75FB8 /* normalize.css */,
+				45BFFC3A1B5490E900B75FB8 /* reader.js */,
+				45BFFC461B54987D00B75FB8 /* foundation.min.js */,
+				45BFFC471B54987D00B75FB8 /* jquery.js */,
+				45BFFC481B54987D00B75FB8 /* modernizr.js */,
 				45F0D8B21B535D42008B9806 /* images.xcassets */,
 				45AAE7A01B5076AF00E8F501 /* Core Data */,
 				45C690DC1B45D560005D5FFA /* LaunchScreen.xib */,
@@ -340,7 +364,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45BFFC431B54983B00B75FB8 /* foundation.min.css in Resources */,
+				45BFFC4E1B54987D00B75FB8 /* modernizr.js in Resources */,
+				45BFFC411B54983B00B75FB8 /* foundation.css in Resources */,
 				453FB7DB1B504E3600C2B820 /* Action.js in Resources */,
+				45BFFC4A1B54987D00B75FB8 /* foundation.min.js in Resources */,
+				45BFFC4C1B54987D00B75FB8 /* jquery.js in Resources */,
+				45BFFC451B54983B00B75FB8 /* normalize.css in Resources */,
+				45BFFC3C1B5490E900B75FB8 /* reader.js in Resources */,
 				45F0D8B41B535D42008B9806 /* images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,9 +381,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				45F0D8B31B535D42008B9806 /* images.xcassets in Resources */,
-				45F0D8B61B540042008B9806 /* parser.js in Resources */,
+				45BFFC401B54983B00B75FB8 /* foundation.css in Resources */,
+				45BFFC3B1B5490E900B75FB8 /* reader.js in Resources */,
 				45C690D91B45D560005D5FFA /* Main.storyboard in Resources */,
+				45BFFC421B54983B00B75FB8 /* foundation.min.css in Resources */,
+				45BFFC4D1B54987D00B75FB8 /* modernizr.js in Resources */,
+				45BFFC491B54987D00B75FB8 /* foundation.min.js in Resources */,
+				45BFFC4B1B54987D00B75FB8 /* jquery.js in Resources */,
 				45C690DE1B45D560005D5FFA /* LaunchScreen.xib in Resources */,
+				45BFFC441B54983B00B75FB8 /* normalize.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,7 +407,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45F0D8B71B5400AE008B9806 /* parser.js in Sources */,
 				45AAE7BC1B53302000E8F501 /* Article.m in Sources */,
 				453FB7D91B504E3600C2B820 /* ActionRequestHandler.m in Sources */,
 				45AAE7AC1B50779900E8F501 /* ArticleParser.m in Sources */,

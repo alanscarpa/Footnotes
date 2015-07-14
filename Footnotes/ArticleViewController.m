@@ -11,7 +11,7 @@
 #import "DataStore.h"
 
 
-@interface ArticleViewController () <AVSpeechSynthesizerDelegate>
+@interface ArticleViewController () <AVSpeechSynthesizerDelegate, UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIButton *listenButton;
@@ -29,8 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-  
+
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interruption:) name:AVAudioSessionInterruptionNotification object:nil];
     
@@ -69,19 +68,37 @@
 
 -(void)loadArticle:(Article*)article{
     
-        [self.webView loadHTMLString:self.article.html baseURL:nil];
+    NSLog(@"Html: %@", self.article.html);
+    NSLog(@"Text  %@", self.article.textToRead);
     
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSURL *baseURL = [NSURL fileURLWithPath:path];
+    [self.webView loadHTMLString:self.article.html baseURL:baseURL];
+    self.webView.delegate = self;
+        
     if ([article.hasBegunReading isEqual:@0]){
         // Read from the beginning of article
         self.textToRead = self.article.textToRead;
     } else {
         // Article has been at least partially read.
         // Therefore, pick up from where we left off.
-        self.textToRead = self.article.remainingTextToRead;
+    
+      //  self.textToRead = self.article.remainingTextToRead;
     }
     
 }
 
+-(void)webViewDidStartLoad:(UIWebView *)webView{
+   // NSLog(@"Starting to load page:  %@", webView.request.URL);
+}
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+    if (webView.isLoading){
+        // do nothing
+    } else {
+        NSLog(@"Finished loading!");
+  
+    }
+}
 
 -(void)speakText:(NSString*)textToRead{
     
